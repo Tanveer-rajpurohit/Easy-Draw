@@ -42,6 +42,8 @@ export default function CreateFile({ isOpen, onClose }: Props) {
 
         console.log("File created successfully:", data);
         onClose();
+      window.location.reload(); 
+
 
       } catch (error) {
         console.error("Error creating file:", error);

@@ -6,7 +6,7 @@ const fileRouter = Router();
 
 fileRouter.post('/create',isAuthorized,createFile)
 fileRouter.post('/edit',isAuthorized,editFile)
-fileRouter.post('/delete',isAuthorized,deleteFile)
+fileRouter.delete('/delete',isAuthorized,deleteFile)
 fileRouter.get('/alldata',isAuthorized, getalldata)
 
 export default fileRouter
