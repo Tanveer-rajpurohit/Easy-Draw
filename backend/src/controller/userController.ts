@@ -1,9 +1,18 @@
+import redis from "../config/redis";
 import { User } from "../model/DbModel";
 
 const getDashboardData = async (req: any, res: any) => {
     const userId = req.user.userId;
- 
+    const cacheKey = `dashboard:${userId}`
     try {
+        
+
+        const cacheValue = await redis.get(cacheKey);
+        if(cacheValue){
+            return res.json(JSON.parse(cacheValue));
+        }
+
+
         // Fetch the user by ID and populate teams, members, createdBy, and files inside each team
         const data = await User.findById(userId)
             .populate({
@@ -20,10 +29,19 @@ const getDashboardData = async (req: any, res: any) => {
                     {
                         path: 'files',  // Populate the files array inside each team
                         model: 'File',  // Reference to the File model
+                        select:{
+                            _id: true,
+                            name: true,
+                            createdAt: true,
+                            createdBy: true,
+                            team: true,
+                            __v: true,
+                        },
                         populate: {
                             path: 'createdBy',  // Populate the team field inside each file
                             model: 'User'  // Reference to the Team model
                         }
+                        
                     }
                 ]
             });
@@ -31,6 +49,9 @@ const getDashboardData = async (req: any, res: any) => {
         if (!data) {
             return res.status(404).json({ message: 'User not found' });
         }
+
+        await redis.set(cacheKey, JSON.stringify(data), "EX", 200);//40 sec to expire
+        // await redis.expire(cacheKey, 10);
 
         // Send the populated data as response
         res.json(data);

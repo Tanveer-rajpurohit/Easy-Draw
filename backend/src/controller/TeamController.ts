@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'; // For generating a unique invite link
 import { Team, User } from "../model/DbModel";
+import redis from '../config/redis';
 
 const createTeam = async (req: any, res: any): Promise<any> => {
   const { name, description } = req.body;
@@ -32,6 +33,9 @@ const createTeam = async (req: any, res: any): Promise<any> => {
       { $push: { teams: newTeam._id } }, // Push the new team ID into the teams array
       { new: true }
     );
+
+    const cacheKey = `dashboard:${userId}`;
+    await redis.del(cacheKey);
 
     return res.status(201).json({
       message: "Team created successfully",
@@ -72,6 +76,9 @@ const joinTeam = async (req: any, res: any) => {
 
     // Add the team to the user's teams list
     await User.findByIdAndUpdate(userId, { $push: { teams: team._id } });
+
+    const cacheKey = `dashboard:${userId}`;
+    await redis.del(cacheKey);
 
     return res.status(200).json({ message: "Successfully joined the team", team });
   } catch (error) {

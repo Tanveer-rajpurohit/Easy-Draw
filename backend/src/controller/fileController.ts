@@ -1,3 +1,4 @@
+import redis from "../config/redis";
 import { File, Team, User } from "../model/DbModel";
 
 const createFile = async (req: any, res: any) => {
@@ -31,6 +32,9 @@ const createFile = async (req: any, res: any) => {
       { new: true }
     );
 
+    const cacheKey = `dashboard:${userId}`;
+    await redis.del(cacheKey);
+
     return res.status(201).json({
       message: "File created successfully",
       newFile,
@@ -40,6 +44,7 @@ const createFile = async (req: any, res: any) => {
     return res.status(500).json({ message: "Error creating file" });
   }
 };
+
 
 const editFile = async (req: any, res: any) => {
   const { editorData, canvasData, fileId } = req.body;
@@ -72,6 +77,7 @@ const editFile = async (req: any, res: any) => {
     return res.status(500).json({ message: "Error editing file" });
   }
 };
+
 
 const deleteFile = async (req: any, res: any) => {
   const { fileId } = req.body;
@@ -106,6 +112,9 @@ const deleteFile = async (req: any, res: any) => {
 
     // Step 4: Delete the file from the File collection
     await file.deleteOne();
+
+    const cacheKey = `dashboard:${userId}`;
+    await redis.del(cacheKey);
 
     return res.status(200).json({ message: "File deleted successfully" });
   } catch (error) {
