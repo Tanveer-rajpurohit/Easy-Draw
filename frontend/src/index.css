@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Comic+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Doto:wght@100..900&family=M+PLUS+Rounded+1c&family=Moderustic:wght@300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins&family=Quicksand:wght@300..700&family=Reddit+Mono:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EditorJS Heading Styles */
+h1 {
+  font-size: 2.25rem; /* Tailwind: text-3xl */
+  font-weight: 700; /* Tailwind: font-bold */
+  color: white;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 1.875rem; /* Tailwind: text-2xl */
+  font-weight: 600; /* Tailwind: font-semibold */
+  color: white;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.5rem; /* Tailwind: text-xl */
+  font-weight: 500; /* Tailwind: font-medium */
+  color: white;
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: 1.25rem; /* Tailwind: text-lg */
+  font-weight: 500; /* Tailwind: font-medium */
+  color: white;
+  line-height: 1.3;
+}
+
+h5 {
+  font-size: 1.125rem; /* Tailwind: text-base */
+  font-weight: 400; /* Tailwind: font-normal */
+  color: white;
+  line-height: 1.3;
+}
+
+h6 {
+  font-size: 1rem; /* Tailwind: text-sm */
+  font-weight: 400; /* Tailwind: font-normal */
+  color: white;
+  line-height: 1.3;
+}
+
+/* Add consistent spacing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5rem 0; /* Add some spacing between headings */
+}
+
+/* EditorJS Block Controls Styles */
+.ce-toolbar__plus {
+  color: white; /* Make the "+" icon visible on dark backgrounds */
+}
+
+.ce-toolbar__plus:hover {
+  color: #111111;
+  background-color: #f1f2f6;
+}
+
