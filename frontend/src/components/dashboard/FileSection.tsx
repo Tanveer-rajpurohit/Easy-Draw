@@ -7,7 +7,7 @@ const FileSection = () => {
     <div className="h-full w-[82.112%] flex-shrink-0 relative border-r border-[#2A2B2B] py-10 text-white">
       <div className="nav px-20 flex items-center justify-between">
         <div className="flex items-center justify-center gap-1">
-          <div className="bg-[#242424] border border-[#3A3A3A] px-2.5 py-0.5 rounded-md">
+          {/* <div className="bg-[#242424] border border-[#3A3A3A] px-2.5 py-0.5 rounded-md">
             <h3 className="font-bold text-sm">All</h3>
           </div>
           <div className="px-2.5 py-0.5 rounded-md text-[#787878] hover:text-[#ffffff]">
@@ -15,7 +15,10 @@ const FileSection = () => {
           </div>
           <div className="px-2.5 py-0.5 rounded-md text-[#787878] hover:text-[#ffffff]">
             <h3 className="font-bold text-sm">Created by Me</h3>
-          </div>
+          </div> */}
+          <div className="px-2.5 py-0.5 rounded-md text-[#787878] border border-[#3A3A3A]  hover:text-[#ffffff]">
+            <h3 className="font-bold text-sm">All Files</h3>
+        </div>
         </div>
 
         <div className="flex gap-4 items-center justify-center">

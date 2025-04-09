@@ -61,6 +61,11 @@ const Workspace = () => {
         localStorage.removeItem('authToken');
         window.location.href = '/login';
       }
+      if(data.message === "jwt expired"){
+        alert('Session expired, please log in again.');
+        localStorage.removeItem('authToken');
+        window.location.href = '/login';
+      }
       throw new Error(`HTTP error! status: ${response.status}`);
     }
   };

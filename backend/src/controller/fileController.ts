@@ -70,6 +70,8 @@ const editFile = async (req: any, res: any) => {
 
     // Save the updated file document
     await file.save();
+    console.log("File updated successfully:", file);
+    
 
     return res.status(200).json({ message: "File edited successfully", file });
   } catch (error) {

@@ -13,7 +13,8 @@ const Sidebar = () => {
 
 
 
-  const width = (currentTeam?.files.length / 5) * 100;
+  const width:number = (currentTeam?.files.length / 5) * 100;
+  
   
   
   const [showCreateFile, setShowCreateFile] = useState(false);
@@ -46,20 +47,21 @@ const Sidebar = () => {
             <FolderOpen className="w-4 h-4 " />
           </div>
 
-          <div className="mt-6 border border-[#3A3A3A] rounded-lg w-[98%] h-56 py-4 px-6">
-            <h3 className="text-sm font-semibold capitalize">
-              Easy Draw Free Trial
+          <div className="mt-6 border border-[#3A3A3A] rounded-lg w-[98%] h-56 py-3 px-6">
+            <h3 className="text-sm font-medium capitalize">
+              Easy Draw Limited Free Trial
             </h3>
-            <div className="mt-5 progress">
+            <div className="mt-3 progress">
               <div className=" w-full bg-[#4b4b4be4] rounded-full">
-                <div className={`progress-bar bg-[#94dbff] w-[${width}%] h-2 rounded-lg`}></div>
+                <div className={`progress-bar bg-[#94dbff]  h-2 rounded-lg`} 
+                  style={{ width: `${width}%` }}></div>
               </div> 
               <p className="mt-2 text-xs font-semibold">{`${currentTeam?.files.length} of 5 files.`}</p>
             </div>
 
             <div className="mt-6">
               <p className="text-xs">
-                Upgrade your plan for unlimited files & more features
+                Upgrade your plan for unlimited files & more features.
               </p>
 
               <div className="mt-4">
