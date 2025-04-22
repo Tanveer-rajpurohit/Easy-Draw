@@ -76,6 +76,15 @@ export default function JoinTeam({ isOpen, onClose }: TeamsProps) {
           >
             Join Team
           </button>
+          <button
+            onClick={(e)=>{
+              e.preventDefault();
+              navigate("/team/create")
+            }}
+            className="flex items-center gap-2 px-4 py-2  bg-[#1F3E7B] rounded-md transition-colors"
+          >
+            Create Team
+          </button>
         </div>
       </div>
     </div>

@@ -27,8 +27,10 @@ const Editor: React.FC<EditorProps> = ({ editorRef }) => {
   const {file} = useContext(FileContext)
 
   useEffect(() => {
-    file.editorData  && initEditor();
-    
+    if(file.editorData ){
+      initEditor();
+
+    }
   }, [file.editorData]);
 
   const initEditor = ()=>{

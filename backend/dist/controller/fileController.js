@@ -31,11 +31,12 @@ const createFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         const newFile = new DbModel_1.File({
             name,
             team,
-            canvasData: {},
-            editorData: {},
+            canvasData: {}, // or whatever minimal data makes sense
+            editorData: { blocks: [], time: Date.now() }, // mimicking typical structure
             createdBy: userId,
         });
         yield newFile.save();
+        console.log(newFile);
         // Add the file to the team's `files` field
         yield DbModel_1.Team.findByIdAndUpdate(team, { $push: { files: newFile._id } }, { new: true });
         const cacheKey = `dashboard:${userId}`;
@@ -69,6 +70,7 @@ const editFile = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         file.canvasData = parsedCanvasData;
         // Save the updated file document
         yield file.save();
+        console.log("File updated successfully:", file);
         return res.status(200).json({ message: "File edited successfully", file });
     }
     catch (error) {

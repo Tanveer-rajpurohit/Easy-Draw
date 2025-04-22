@@ -18,10 +18,11 @@ const createFile = async (req: any, res: any) => {
     const newFile = new File({
       name,
       team,
-      canvasData: {},
-      editorData: {},
+      canvasData: {}, // or whatever minimal data makes sense
+      editorData: { blocks: [], time: Date.now() }, // mimicking typical structure
       createdBy: userId,
     });
+    
 
     await newFile.save();
 

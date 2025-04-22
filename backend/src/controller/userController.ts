@@ -10,9 +10,7 @@ const getDashboardData = async (req: any, res: any) => {
         const cacheValue = await redis.get(cacheKey);
         if(cacheValue){
             return res.json(JSON.parse(cacheValue));
-        }
-
-
+        }   
         // Fetch the user by ID and populate teams, members, createdBy, and files inside each team
         const data = await User.findById(userId)
             .populate({

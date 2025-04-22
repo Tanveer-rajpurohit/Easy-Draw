@@ -83,6 +83,7 @@ const Dropdown_wrapper = () => {
                     onClick={(e)=>{
                       e.preventDefault();
                       chnageCurrentTeam(team)
+                      
                     }}
                     className={`w-full flex items-center justify-start gap-3  py-1 px-4 rounded-md  ${team?._id === currentTeam?._id ? 'hover:bg-[#2866DF] bg-[#2866DF]': 'hover:bg-[#2A2B2B]'}`}
                   >

@@ -4,7 +4,7 @@ import FileList from "./FileList";
 
 const FileSection = () => {
   return (
-    <div className="h-full w-[82.112%] flex-shrink-0 relative border-r border-[#2A2B2B] py-10 text-white">
+    <div className="h-full w-[82.112%] flex-shrink-0 relative border-r border-[#2A2B2B] py-10 text-white overflow-auto">
       <div className="nav px-20 flex items-center justify-between">
         <div className="flex items-center justify-center gap-1">
           {/* <div className="bg-[#242424] border border-[#3A3A3A] px-2.5 py-0.5 rounded-md">
@@ -22,7 +22,7 @@ const FileSection = () => {
         </div>
 
         <div className="flex gap-4 items-center justify-center">
-          <div className="serach flex-shrink-0 border border-[#666666] rounded-md w-56 py-1 flex items-center justify-between px-3">
+          {/* <div className="serach flex-shrink-0 border border-[#666666] rounded-md w-56 py-1 flex items-center justify-between px-3">
             <Search className="w-4 h-4 text-[#E8E8E8]" />
             <input
               type="text"
@@ -30,12 +30,12 @@ const FileSection = () => {
               className="bg-transparent text-sm focus:outline-none"
             />
             <p className="text-sm">/</p>
-          </div>
+          </div> */}
 
-          <button className="w-full px-3 py-[0.28rem] bg-[#94dbff] text-[#171717] font-semibold rounded-md hover:bg-[#7ac8f0] transition-colors duration-300 shadow-lg text-sm flex items-center justify-center gap-2">
+          {/* <button className="w-full px-3 py-[0.28rem] bg-[#94dbff] text-[#171717] font-semibold rounded-md hover:bg-[#7ac8f0] transition-colors duration-300 shadow-lg text-sm flex items-center justify-center gap-2">
             <Send className="w-[0.85rem] h-[0.85rem]" />
             Invite
-          </button>
+          </button> */}
         </div>
       </div>
 
